@@ -1,0 +1,118 @@
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.python-version
+
+# virtual env
+.venv/
+venv/
+env/
+ENV/
+
+# pytest / mypy / cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# =========================
+# Build / packaging
+# =========================
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+nohup.out
+
+# =========================
+# Training outputs
+# =========================
+wandb/
+data/outputs/
+outputs/
+runs/
+checkpoints/
+*.ckpt
+*.pt
+*.pth
+*.onnx
+
+# =========================
+# Dataset / generated artifacts
+# =========================
+dataset/
+datasets/
+*.zarr
+*.zarr.zip
+*.hdf5
+*.h5
+*.npz
+*.npy
+*.pkl
+
+# video / image artifacts
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.gif
+
+# optional generated previews
+test_resize_output.jpg
+
+# =========================
+# Secrets / credentials
+# =========================
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# mac / cli auth
+.netrc
+
+# =========================
+# Jupyter
+# =========================
+*.ipynb_checkpoints
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+
+
+
+### others
+umidata/single/
+umidata/double/
+umidata/data_process/__pycache__/
+
+dataset/single/
+dataset/double/
+dataset/opensource/
