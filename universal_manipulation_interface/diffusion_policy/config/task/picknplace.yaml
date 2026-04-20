@@ -59,7 +59,7 @@ shape_meta: &shape_meta
     rotation_rep: rotation_6d
 
 task_name: &task_name picknplace
-dataset_path: /Users/sp/Desktop/umi_project/dataset/single/dataset.zarr.zip
+dataset_path: ../dataset/single/dataset.zarr.zip
 pose_repr: &pose_repr
   obs_pose_repr: relative
   action_pose_repr: relative

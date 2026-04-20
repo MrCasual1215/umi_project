@@ -1,0 +1,34 @@
+# Minimal dependency set for trying local training on Ubuntu.
+# Target use case:
+# - run train.py with task=picknplace
+# - load dataset.zarr.zip with UmiDataset
+# - use timm-based image policies
+#
+# Recommended Python: 3.9 or 3.10
+# Install with:
+#   pip install -r requirements-ubuntu-min-train.txt
+
+
+hydra-core==1.2.0
+omegaconf>=2.2,<2.4
+
+numpy==1.24.4
+scipy==1.11.4
+pandas==2.1.4
+pyyaml==6.0.1
+tqdm==4.66.2
+
+zarr==2.16.1
+numcodecs>=0.12,<0.13
+imagecodecs==2023.9.18
+opencv-python==4.8.1.78
+filelock==3.13.1
+threadpoolctl==3.2.0
+
+wandb==0.26.0
+accelerate==0.24.1
+dill==0.3.7
+einops==0.6.1
+diffusers==0.18.2
+huggingface_hub==0.23.5
+timm==0.9.7
