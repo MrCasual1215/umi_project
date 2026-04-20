@@ -57,18 +57,7 @@ checkpoints/
 *.pth
 *.onnx
 
-# =========================
-# Dataset / generated artifacts
-# =========================
-dataset/
-datasets/
-*.zarr
-*.zarr.zip
-*.hdf5
-*.h5
-*.npz
-*.npy
-*.pkl
+
 
 # video / image artifacts
 *.mp4
@@ -77,8 +66,6 @@ datasets/
 *.mkv
 *.gif
 
-# optional generated previews
-test_resize_output.jpg
 
 # =========================
 # Secrets / credentials

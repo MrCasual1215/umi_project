@@ -1,8 +1,5 @@
 .vscode
 example_demo_session
-data
-data_local
-data_workspace
 outputs
 wandb
 **/.DS_Store
