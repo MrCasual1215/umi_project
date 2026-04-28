@@ -1,0 +1,9 @@
+{
+  "episode_dir": "/home/sunpeng/sp/umi_project/universal_manipulation_interface/pika_dataset/single/episode79",
+  "output_dir": "/home/sunpeng/sp/umi_project/universal_manipulation_interface/pika_dataset/exports/episode79",
+  "aligned_frame_count": 356,
+  "obs_horizon": 2,
+  "act_horizon": 16,
+  "stride": 2,
+  "sample_count": 170
+}

@@ -1,0 +1,11 @@
+14.0049
+topic:
+camera/color/pikaDepthCamera 390 30.069
+camera/color/pikaFisheyeCamera 388 30.0775
+camera/depth/pikaDepthCamera 389 29.9919
+localization/pose/pika 3254 249.985
+gripper/encoder/pika 1627 125.058
+config:
+camera/color/pikaDepthCamera 1
+camera/color/pikaFisheyeCamera 1
+camera/depth/pikaDepthCamera 1

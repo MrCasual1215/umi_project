@@ -41,12 +41,15 @@ if str(UMI_PROJECT_ROOT) not in sys.path:
 
 from diffusion_policy.common.replay_buffer import ReplayBuffer  # noqa: E402
 
+CROP = True
+FISHEYE = False
+DATE = "20260427"
 
-DEFAULT_INPUT_ROOT = REPO_ROOT / "umidata" / "single"
-DEFAULT_OUTPUT_PATH = REPO_ROOT / "dataset" / "single" / "dataset.zarr.zip"
-DEFAULT_TEST_OUTPUT_IMAGE = REPO_ROOT / "dataset" / "single" / "test_resize_output.jpg"
+DEFAULT_INPUT_ROOT = REPO_ROOT / "umidata" / "single" / DATE
+DEFAULT_OUTPUT_PATH = REPO_ROOT / "dataset" / "single" / f"{DATE}_{'fisheye' if FISHEYE else 'RGB'}_{'croped' if CROP else 'no_crop'}_single.zarr.zip"
+DEFAULT_TEST_OUTPUT_IMAGE = REPO_ROOT / "umidata" / "data_process" / "resize_img" / "test_resize_output.jpg"
 
-CAMERA_REL_PATH = Path("camera/color/pikaFisheyeCamera")
+CAMERA_REL_PATH = Path(f"camera/color/pikaFisheyeCamera" if FISHEYE else "camera/color/pikaDepthCamera")
 POSE_REL_PATH = Path("localization/pose/pika")
 GRIPPER_REL_PATH = Path("gripper/encoder/pika")
 
@@ -128,20 +131,22 @@ def read_rgb_image(image_path: Path) -> np.ndarray:
         raise FileNotFoundError(f"Failed to read image: {image_path}")
     image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
 
-    ## crop + resize
-    height, width = image_rgb.shape[:2]
-    crop_size = min(height, width)
-    top = (height - crop_size) // 2
-    left = (width - crop_size) // 2
-    cropped = image_rgb[top:top + crop_size, left:left + crop_size]
-    resized = cv2.resize(
-        cropped, OUTPUT_IMAGE_SIZE, interpolation=cv2.INTER_AREA
-    )
 
-    # # direct resize
-    # resized = cv2.resize(
-    #     image_rgb, OUTPUT_IMAGE_SIZE, interpolation=cv2.INTER_AREA
-    # )
+    if CROP:
+        ## crop + resize
+        height, width = image_rgb.shape[:2]
+        crop_size = min(height, width)
+        top = (height - crop_size) // 2
+        left = (width - crop_size) // 2 
+        cropped = image_rgb[top:top + crop_size, left:left + crop_size]
+        resized = cv2.resize(
+            cropped, OUTPUT_IMAGE_SIZE, interpolation=cv2.INTER_AREA
+        )
+    else:
+        resized = cv2.resize(
+            image_rgb, OUTPUT_IMAGE_SIZE, interpolation=cv2.INTER_AREA
+        )
+
     return resized.astype(np.uint8)
 
 
